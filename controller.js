@@ -5,7 +5,7 @@ app.controller('homeController', function($scope) {
 });
 
 function initController ($scope) {
-	$scope.items=['first item'];
+	$scope.items = ["first item"];
 	$scope.addItem = function(){
 		if($scope.newItem){
 			$scope.items.push($scope.newItem);
