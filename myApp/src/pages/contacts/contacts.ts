@@ -31,21 +31,25 @@ cs: ContactService;
     inputs: [
       {
         name: 'nombre',
-        placeholder: 'Adrián'
+        placeholder: 'Adrián',
+        value: con.nombre
       },
       {
         name: 'organizacion',
-        placeholder: 'Corona de Aragón'
+        placeholder: 'Corona de Aragón',
+        value: con.organizacion
       },
       {
       	name:"movil",
       	placeholder:"666666666",
-      	type:"Phone"
+      	type:"Phone",
+        value: con.movil
       },
       {
       	name:"correo",
       	placeholder:"pepe.pepe@españa.es",
-      	type:"email"
+      	type:"email",
+        value: con.correo
 
       }
     ],
