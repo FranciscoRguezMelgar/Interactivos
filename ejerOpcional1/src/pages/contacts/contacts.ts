@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ContactService } from '../../services/contact.service'
 import { AlertController } from 'ionic-angular';
 import { Contact } from '../../models/contact.model';
+import { AngularFireDatabase } from "angularfire2/database"
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the ContactsPage page.
@@ -17,9 +19,9 @@ import { Contact } from '../../models/contact.model';
   templateUrl: 'contacts.html',
 })
 export class ContactsPage {
-cs: ContactService;
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams) {
-  	this.cs = new ContactService();
+  contacts$: Observable<Contact[]>;
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, private ContactService: ContactService, public navParams: NavParams) {
+  	//this.cs = new ContactService(AngularFireDatabase);
 
   }
 
@@ -73,7 +75,7 @@ cs: ContactService;
 }
 
 
-  promptOptions(con2: Contact){
+  /*promptOptions(con2: Contact){
   	let alert2 = this.alertCtrl.create({
 
     title: 'Acciones',
@@ -100,9 +102,9 @@ cs: ContactService;
     ]
   });
   alert2.present();
-  }
+  }*/
 
-  scooby(){
+  /*scooby(){
   	console.log("Hemos entrado en promptEdit")
   	let alert = this.alertCtrl.create({
 
@@ -146,10 +148,23 @@ cs: ContactService;
     ]
   });
   alert.present();
-  }
+  }*/
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactsPage');
   }
 
+  ionViewWillEnter(){
+
+   //this.contacts=this.ContactService.getContacts();
+   this.contacts$ = this.ContactService
+     .getContacts()  //Retorna la DB
+     .snapshotChanges() //retorna los cambios en la DB (key and value)
+     .map(changes => {
+         return changes.map(c=> ({
+           key: c.payload.key, ...c.payload.val()
+         }));
+       }); 
+    
+}
 }

@@ -6,11 +6,15 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ContactsPage } from '../pages/contacts/contacts';
-
+import { FIRE_CONF } from './firebase.credentials';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ContactService } from "../services/contact.service";
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+
 
 @NgModule({
   declarations: [
@@ -22,6 +26,7 @@ import { ContactService } from "../services/contact.service";
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FIRE_CONF)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -1,9 +1,17 @@
+import { Injectable } from "@angular/core";
 import { Contact } from "../models/contact.model";
-export class ContactService{
-	private contacts: Contact []=
-	[new Contact("Rodrigo","CruzadasCastilla","123456789","elcid@gmail.com")]
+import { AngularFireDatabase } from "angularfire2/database"
 
-	constructor(){
+@Injectable()
+export class ContactService{
+	private contacts: Contact;
+
+
+	constructor(private db:AngularFireDatabase){
+		this.contacts = this.db.list<Contact>('Interactivos')
+		.getContacts()
+		.snapshotChanges()
+		.map();
 
 	}
 

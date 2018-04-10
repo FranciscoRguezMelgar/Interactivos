@@ -24,20 +24,12 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-card (click)="promptOptions(contact)" *ngFor="let contact of cs.contacts">
-      <ion-card-header>
-        {{contact.nombre}}
-      </ion-card-header>
-      <ion-card-content>
-      <ion-list>
-          <ion-item>{{contact.organizacion}}</ion-item>
-          <ion-item>{{contact.movil}}</ion-item>
-          <ion-item>{{contact.correo}}</ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-  </ion-list>
+    <button ion-item *ngFor="let contact of contacts$ | async" (click)="onItemTapped($event, contact)">
+     <p><strong>Nombre: </strong>{{contact.nombre}}</p> 
+     <p><strong>Organización: </strong>{{contact.organizacion}}</p>
+    </button>
+    
+</ion-list>
 	
 
 </ion-content>
