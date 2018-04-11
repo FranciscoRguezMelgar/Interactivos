@@ -19,9 +19,8 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: 'contacts.html',
 })
 export class ContactsPage {
-  contacts$: Observable<Contact[]>;
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController, private ContactService: ContactService, public navParams: NavParams) {
-  	//this.cs = new ContactService(AngularFireDatabase);
+  public contacts$;
+  constructor(public cs:ContactService, public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams) {  	
 
   }
 
@@ -67,6 +66,7 @@ export class ContactsPage {
         text: 'Guardar',
         handler: data => {
         	con.edit(data.nombre, data.organizacion, data.movil, data.correo);
+         this.cs.edit(con);
         }
       }
     ]
@@ -75,7 +75,7 @@ export class ContactsPage {
 }
 
 
-  /*promptOptions(con2: Contact){
+  promptOptions(con2: Contact){
   	let alert2 = this.alertCtrl.create({
 
     title: 'Acciones',
@@ -102,9 +102,9 @@ export class ContactsPage {
     ]
   });
   alert2.present();
-  }*/
+  }
 
-  /*scooby(){
+  scooby(){
   	console.log("Hemos entrado en promptEdit")
   	let alert = this.alertCtrl.create({
 
@@ -141,15 +141,37 @@ export class ContactsPage {
       {
         text: 'Guardar',
         handler: data => {
-        	var con = new Contact(data.nombre, data.organizacion, data.movil, data.correo);
+        	var con = new Contact(data.nombre, data.organizacion, data.movil, data.correo, null);
         	this.cs.addContact(con);
         }
       }
     ]
   });
   alert.present();
-  }*/
+  }
 
+  ionViewWillEnter(){
+    this.contacts$ = this.cs.getContacts().snapshotChanges()
+    .map(
+      (changes)=>{
+        return changes.map(
+          (c)=>{
+            console.log(c.payload.key)
+            return new Contact(c.payload.val().nombre,
+              c.payload.val().organizacion,
+              c.payload.val().movil,
+              c.payload.val().correo,
+              c.payload.key
+              )
+          }
+          )
+      }
+    );
+
+}
+}
+
+/*
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactsPage');
   }
@@ -166,5 +188,4 @@ export class ContactsPage {
          }));
        }); 
     
-}
-}
+}*/

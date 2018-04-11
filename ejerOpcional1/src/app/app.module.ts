@@ -13,7 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ContactService } from "../services/contact.service";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 
 @NgModule({
@@ -26,7 +26,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(FIRE_CONF)
+    AngularFireModule.initializeApp(FIRE_CONF),
+     AngularFireDatabaseModule,              
+    AngularFireAuthModule           
   ],
   bootstrap: [IonicApp],
   entryComponents: [

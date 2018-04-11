@@ -11,11 +11,13 @@ export class Contact{
 		this.movil = movil;
 		return;
 	}
-	constructor(nombre:string, org:string, movil:string, mail:string){
+
+	constructor(nombre:string, org:string, movil:string, mail:string, key:string){
 		this.correo = mail;
 		this.organizacion = org;
 		this.nombre = nombre;
 		this.movil = movil;
+		this.key = key;
 		return;
 	}
 }

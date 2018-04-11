@@ -1,8 +1,10 @@
 export const FIRE_CONF = {
-    apiKey: "AIzaSyC7cF06AlAKo-RvLgHHkzbjfXFqfMQbm8Q",
-    authDomain: "interactivos-cdaad.firebaseapp.com",
-    databaseURL: "https://interactivos-cdaad.firebaseio.com",
-    projectId: "interactivos-cdaad",
-    storageBucket: "interactivos-cdaad.appspot.com",
-    messagingSenderId: "397694914016"
+  
+    apiKey: "AIzaSyDWIhpFtaQlEwWDc1Abveg3CCSjN-suobg",
+    authDomain: "opcional1-f6a29.firebaseapp.com",
+    databaseURL: "https://opcional1-f6a29.firebaseio.com",
+    projectId: "opcional1-f6a29",
+    storageBucket: "opcional1-f6a29.appspot.com",
+    messagingSenderId: "15954013365"
+
   };
