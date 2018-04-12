@@ -1,0 +1,49 @@
+<!--
+  Generated template for the ContactsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>agenda</ion-title>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button (click)="scooby2()">
+        <ion-icon name="add"></ion-icon> 
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+
+  <ion-card  *ngFor="let tarea of (this.tareas$ | async)" (click)="promptOptions2(tareas)">
+    <ion-card-header>
+      <strong>{{tarea.evento}}</strong>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item detail-push>
+  
+      {{tarea.fecha}}
+      </ion-item>
+    <ion-item detail-push>
+      {{tarea.lugar}}
+    </ion-item>
+    <ion-item detail-push>      
+      {{tarea.prioridad}}
+    </ion-item>
+    </ion-card-content>
+
+  </ion-card> 
+
+
+
+</ion-content>
