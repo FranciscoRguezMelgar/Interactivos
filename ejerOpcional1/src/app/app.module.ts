@@ -10,7 +10,8 @@ import { TareasPage } from '../pages/tareas/tareas';
 import { FIRE_CONF } from './firebase.credentials';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { LoginPage } from '../pages/login/login';
+import { AboutPage } from '../pages/about/about'
 import { ContactService } from "../services/contact.service";
 import { TareaService } from "../services/tarea.service";
 import { AngularFireModule } from 'angularfire2';
@@ -24,7 +25,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     HomePage,
     ListPage,
     ContactsPage,
-    TareasPage
+    TareasPage,
+    LoginPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     HomePage,
     ListPage,
     ContactsPage,
-    TareasPage
+    TareasPage,
+    LoginPage,
+    AboutPage
   ],
   providers: [
     StatusBar,

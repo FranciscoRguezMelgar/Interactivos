@@ -2,11 +2,13 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AboutPage } from '../pages/about/about'
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ContactsPage } from '../pages/contacts/contacts';
 import { TareasPage } from '../pages/tareas/tareas';
+import { LoginPage } from '../pages/login/login';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,7 +16,7 @@ import { TareasPage } from '../pages/tareas/tareas';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -26,7 +28,8 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Contacts', component: ContactsPage },
-      { title: 'Tareas', component: TareasPage }
+      { title: 'Tareas', component: TareasPage },
+      { title: 'Acerca de', component: AboutPage }
     ];
 
   }

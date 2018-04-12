@@ -109,7 +109,7 @@ export class TareasPage {
     title: 'Nueva tarea',
     inputs: [
       {
-        name: 'nombre',
+        name: 'evento',
         placeholder: 'Suicidio colectivo'
       },
       {
@@ -136,7 +136,7 @@ export class TareasPage {
       {
         text: 'Guardar',
         handler: data => {
-        	var tar = new Tarea(data.evento, data.fecha, data.luegar, data.prioridad, null);
+        	var tar = new Tarea(data.evento, data.fecha, data.lugar, data.prioridad, null);
         	this.ts.addTarea(tar);
         }
       }

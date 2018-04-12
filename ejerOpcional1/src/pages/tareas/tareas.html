@@ -25,7 +25,7 @@
 <ion-content >
 
 
-  <ion-card  *ngFor="let tarea of (this.tareas$ | async)" (click)="promptOptions2(tareas)">
+  <ion-card  *ngFor="let tarea of (this.tareas$ | async)" (click)="promptOptions2(tarea)">
     <ion-card-header>
       <strong>{{tarea.evento}}</strong>
     </ion-card-header>
